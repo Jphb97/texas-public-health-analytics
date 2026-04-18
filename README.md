@@ -41,19 +41,21 @@ This project analyzes **5 years of reportable disease data** across the largest 
 
 ## Database Schema
 
-5 relational tables built in MySQL 8.0:
-```
+6 relational tables built in MySQL 8.0:
+
+---
 diseases ──────┐
-               ├──► disease_cases ◄── counties
+├──► disease_cases ◄── counties ──► county_coordinates
 disease_metadata      (fact table)
-               └──► demographics
-```
+└──► demographics
+---
 
 - `diseases` — catalog of 15 reportable conditions with ICD-10 codes
-- `counties` — 15 most populated Texas counties with Census 2020 population
+- `counties` — 15 most populated Texas counties with Census 2020 population and coordinates
 - `demographics` — age groups and sex for vulnerability analysis
 - `disease_metadata` — severity, seasonality, and vaccine availability
 - `disease_cases` — 170 records of reported cases with rates per 100k
+- `county_coordinates` — dedicated coordinates table for Power BI map visualization
 
 ---
 
@@ -71,6 +73,7 @@ disease_metadata      (fact table)
 | Q8 | What is the public health profile of each county? | CTE (WITH clause) |
 
 ---
+
 ## Dashboard Preview
 
 **Page 1 — Executive Summary**
@@ -82,17 +85,26 @@ disease_metadata      (fact table)
 **Page 3 — Trends & Demographics**
 ![Trends & Demographics](visuals/screenshot_page3_trends_demographics.png)
 
+---
+
 ## Project Structure
-```
+
+---
 texas-public-health-analytics/
 │
 ├── sql/
 │   ├── 01_create_tables.sql      # Database schema - 5 relational tables
 │   ├── 02_insert_data.sql        # Dataset - disease cases 2020-2024
-│   └── 03_analysis_queries.sql   # 8 business analysis queries
+│   ├── 03_analysis_queries.sql   # 8 business analysis queries
+│   └── 04_add_coordinates.sql    # County coordinates for map visualization
+│
+├── visuals/
+│   ├── screenshot_page1_executive_summary.png
+│   ├── screenshot_page2_geographic_analysis.png
+│   └── screenshot_page3_trends_demographics.png
 │
 └── README.md
-```
+---
 ---
 
 ## How to Run This Project
@@ -101,7 +113,9 @@ texas-public-health-analytics/
 2. Open MySQL Workbench and connect to your local instance
 3. Run `01_create_tables.sql` to create the database and tables
 4. Run `02_insert_data.sql` to load the dataset
-5. Run any query from `03_analysis_queries.sql` to explore the data
+5. Run `04_add_coordinates.sql` to add map coordinates to counties
+6. Run any query from `03_analysis_queries.sql` to explore the data
+7. Connect Power BI Desktop to MySQL localhost and load the dashboard visualizations
 
 ---
 
