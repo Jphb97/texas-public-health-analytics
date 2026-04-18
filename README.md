@@ -42,13 +42,12 @@ This project analyzes **5 years of reportable disease data** across the largest 
 ## Database Schema
 
 6 relational tables built in MySQL 8.0:
----
+```
 diseases ──────┐
 ├──► disease_cases ◄── counties ──► county_coordinates
 disease_metadata      (fact table)
 └──► demographics
----
-
+```
 - `diseases` — catalog of 15 reportable conditions with ICD-10 codes
 - `counties` — 15 most populated Texas counties with Census 2020 population and coordinates
 - `demographics` — age groups and sex for vulnerability analysis
@@ -56,6 +55,7 @@ disease_metadata      (fact table)
 - `disease_cases` — 170 records of reported cases with rates per 100k
 - `county_coordinates` — dedicated coordinates table for Power BI map visualization
 
+---
 
 ## SQL Analysis — 8 Business Questions
 
@@ -86,8 +86,7 @@ disease_metadata      (fact table)
 ---
 
 ## Project Structure
-
----
+```
 texas-public-health-analytics/
 │
 ├── sql/
@@ -102,6 +101,8 @@ texas-public-health-analytics/
 │   └── screenshot_page3_trends_demographics.png
 │
 └── README.md
+```
+
 ---
 
 ## How to Run This Project
