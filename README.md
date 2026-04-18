@@ -71,6 +71,16 @@ disease_metadata      (fact table)
 | Q8 | What is the public health profile of each county? | CTE (WITH clause) |
 
 ---
+## Dashboard Preview
+
+**Page 1 — Executive Summary**
+![Executive Summary](visuals/screenshot_page1_executive_summary.png)
+
+**Page 2 — Geographic Analysis**
+![Geographic Analysis](visuals/screenshot_page2_geographic_analysis.png)
+
+**Page 3 — Trends & Demographics**
+![Trends & Demographics](visuals/screenshot_page3_trends_demographics.png)
 
 ## Project Structure
 ```
