@@ -42,11 +42,12 @@ This project analyzes **5 years of reportable disease data** across the largest 
 ## Database Schema
 
 5 relational tables built in MySQL 8.0:
-
+'''
 diseases ──────┐
-├──► disease_cases ◄── counties
+               ├──► disease_cases ◄── counties
 disease_metadata      (fact table)
-└──► demographics
+               └──► demographics
+'''
 
 - `diseases` — catalog of 15 reportable conditions with ICD-10 codes
 - `counties` — 15 most populated Texas counties with Census 2020 population
